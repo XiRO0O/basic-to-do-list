@@ -8,6 +8,11 @@ while user_choice != 5:
     if user_choice == 1:
         print(tasks)
 
+    if user_choice == 2:
+        task = input("Enter task: ")
+        tasks.append(task)
+
+    #if user_choice == 3:
         
 
     print()
