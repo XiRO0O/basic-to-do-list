@@ -4,16 +4,31 @@ tasks = []
 tasks.append("Do training")
 tasks.append("Tidy up")
 
+def show_tasks():
+    task_index = 0
+    for task in tasks:
+        print(task + " [" + str(task_index) + "]")
+        task_index += 1
+
+def add_task():
+    task = input("Enter task: ")
+    tasks.append(task)
+    print("Task added")
+
+def delete_task():
+    task_index = int(input("Enter task index: "))
+    tasks.pop(task_index)
+    print("Task deleted")
+
 while user_choice != 5:
     if user_choice == 1:
-        print(tasks)
+        show_tasks()
 
     if user_choice == 2:
-        task = input("Enter task: ")
-        tasks.append(task)
+        add_task()
 
-    #if user_choice == 3:
-        
+    if user_choice == 3:
+        delete_task()
 
     print()
     print("1. Show tasks")
@@ -23,3 +38,4 @@ while user_choice != 5:
     print("5. Exit")
 
     user_choice = int(input("Choose number: "))
+    print()
