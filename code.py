@@ -1,8 +1,6 @@
 user_choice = -1
 
 tasks = []
-tasks.append("Do training")
-tasks.append("Tidy up")
 
 def show_tasks():
     task_index = 0
@@ -17,16 +15,32 @@ def add_task():
 
 def delete_task():
     task_index = int(input("Enter task index: "))
+    
+    if task_index < 0 or task_index > len(tasks) - 1:
+        print("Task don't exist!")
+        return
+    
     tasks.pop(task_index)
     print("Task deleted!")
 
 def save_tasks():
     file = open("tasks.txt", "w")
-    for task in task:
+    for task in tasks:
         file.write(task+"\n")
     file.close()
 
+def load_tasks():
+    try:
+        file = open("tasks.txt")
 
+        for line in file.readlines():
+            tasks.append(line.strip())
+        
+        file.close()
+    except FileNotFoundError:
+        return
+
+load_tasks()
 
 while user_choice != 5:
     if user_choice == 1:
