@@ -13,12 +13,20 @@ def show_tasks():
 def add_task():
     task = input("Enter task: ")
     tasks.append(task)
-    print("Task added")
+    print("Task added!")
 
 def delete_task():
     task_index = int(input("Enter task index: "))
     tasks.pop(task_index)
-    print("Task deleted")
+    print("Task deleted!")
+
+def save_tasks():
+    file = open("tasks.txt", "w")
+    for task in task:
+        file.write(task+"\n")
+    file.close()
+
+
 
 while user_choice != 5:
     if user_choice == 1:
@@ -29,6 +37,9 @@ while user_choice != 5:
 
     if user_choice == 3:
         delete_task()
+
+    if user_choice == 4:
+        save_tasks()
 
     print()
     print("1. Show tasks")
